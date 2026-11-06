@@ -1,0 +1,4 @@
+import{createClient,type SupabaseClient}from"@supabase/supabase-js";
+const url=import.meta.env.VITE_SUPABASE_URL;const key=import.meta.env.VITE_SUPABASE_ANON_KEY;
+export const cloud:SupabaseClient|null=url&&key?createClient(url,key):null;
+export const connectors=[{name:"SAP S/4HANA",entity:"Material Master / Batch",protocol:"OData API",records:126,fields:["Material","Batch","Plant","MaterialType"]},{name:"LIMS",entity:"Samples / Test Results",protocol:"REST API",records:84,fields:["SampleID","TestMethod","Result","Unit"]},{name:"MES",entity:"Production Orders / Process",protocol:"REST / Event",records:212,fields:["OrderID","Equipment","Setpoint","Timestamp"]},{name:"AVEVA Historian",entity:"Time-series Tags",protocol:"OPC UA / API",records:1604,fields:["Tag","Value","Timestamp","Quality"]}];
